@@ -1,5 +1,4 @@
 import usePosts from "@/hooks/usePosts";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Post from "./Post";
 
@@ -9,9 +8,6 @@ export default function AllPosts() {
     let posts = usePosts(links);
     const users = usePosts("https://dummyjson.com/users?limit=150");
     let pags = [];
-    useEffect(() => {
-        console.log(posts);
-    }, [links]);
 
     for (let i = 0; i < posts?.total / posts?.limit; i++) {
         pags.push({

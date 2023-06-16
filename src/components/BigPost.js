@@ -1,8 +1,10 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import AddComment from "./AddComment";
+import Comments from "./Comments";
 
 export default function BigPost({ post, link }) {
-    console.log(post);
+    const [rerender, setRerender] = useState(false);
     return (
         <div>
             <div className="w-full h-[646px] bg-gray-300 mb-[36px]" />
@@ -10,7 +12,7 @@ export default function BigPost({ post, link }) {
                 {post?.title}
             </h1>
             <Link
-                href={link.href}
+                href={`/${link.href}`}
                 key={post?.userId}
                 className="flex gap-[11px] items-center mb-[34px]"
             >
@@ -24,6 +26,12 @@ export default function BigPost({ post, link }) {
             <div className="mb-[45px]">
                 <p className="text-black text-[14px]">{post?.body}</p>
             </div>
+            <Comments
+                rerender={rerender}
+                setRerender={setRerender}
+                post={post}
+            />
+            <AddComment setRerender={setRerender} post={post} />
         </div>
     );
 }

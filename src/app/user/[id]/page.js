@@ -1,13 +1,10 @@
 "use client";
 import Post from "@/components/Post";
 import usePosts from "@/hooks/usePosts";
-import Link from "next/link";
-import { useEffect } from "react";
 
 const UserProfile = ({ params }) => {
     const users = usePosts(`https://dummyjson.com/users/${params.id}`);
     const posts = usePosts(`https://dummyjson.com/posts/user/${params.id}`);
-    console.log(users);
     return (
         <>
             <div className="flex gap-[21px] items-center mb-[52px]">
