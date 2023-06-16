@@ -23,6 +23,7 @@ export default function AddComment({ post, setRerender }) {
             .catch((error) => {
                 console.error(error);
             })
+            .then(console.log)
             .then(setRerender(true));
     };
     return (
@@ -44,7 +45,9 @@ export default function AddComment({ post, setRerender }) {
                             placeholder="Comment author"
                             type="text"
                             onBlur={formik.handleBlur}
-                            className="w-full border-[1px] border-black flex align-center px-[18px] text-black placeholder:text-black py-[10px] outline-none text-[14px]"
+                            className={`w-full border-[1px] border-black flex align-center px-[18px] text-black placeholder:text-black py-[10px] outline-none text-[14px] ${
+                                formik.touched.author && "border-red"
+                            }`}
                             // value={formData.firstname}
                             name="author"
                             id="author"
@@ -60,8 +63,9 @@ export default function AddComment({ post, setRerender }) {
                             placeholder="Comment text"
                             type="text"
                             onBlur={formik.handleBlur}
-                            className="w-full border-[1px] border-black flex align-center px-[18px] text-black placeholder:text-black py-[10px] outline-none text-[14px]"
-                            // value={formData.firstname}
+                            className={`w-full border-[1px] border-black flex align-center px-[18px] text-black placeholder:text-black py-[10px] outline-none text-[14px] ${
+                                formik.touched.text && "border-red"
+                            }`}
                             name="text"
                             id="text"
                         />

@@ -6,7 +6,7 @@ import Comments from "./Comments";
 export default function BigPost({ post, link }) {
     const [rerender, setRerender] = useState(false);
     return (
-        <div>
+        <div className="w-full">
             <div className="w-full h-[646px] bg-gray-300 mb-[36px]" />
             <h1 className="text-[34px] text-black font-bold mb-[20px]">
                 {post?.title}

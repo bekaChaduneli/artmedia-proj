@@ -10,7 +10,8 @@ export default function Comments({ post, rerender }) {
     const reloadComments = (comment) => {
         axios
             .delete(`https://dummyjson.com/comments/${comment.id}`)
-            .then((res) => res.data);
+            .then((res) => res.data)
+            .then(console.log);
     };
     useEffect(() => {
         post?.post?.id && setSkips(post?.post?.id);
