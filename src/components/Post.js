@@ -3,7 +3,11 @@ import React from "react";
 
 export default function Post({ post, link }) {
     return (
-        <div key={post.id} className="shadow-sm max-w-[460px]">
+        <Link
+            href={`/post/${post.id}`}
+            key={post.id}
+            className="shadow-sm max-w-[460px]"
+        >
             <div className="bg-gray-400 h-[270px]"></div>
             <div className="p-5">
                 <h2 className="mb-[12px] text-[20px] text-black">
@@ -25,6 +29,6 @@ export default function Post({ post, link }) {
                     <p>{post.body}</p>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }
