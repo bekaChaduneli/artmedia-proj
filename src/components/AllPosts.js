@@ -19,14 +19,14 @@ export default function AllPosts() {
     return (
         <>
             <div className="flex gap-[12px] mb-[60px] flex-wrap">
-                {posts?.posts.map((post) => {
+                {posts?.posts.map((post, index) => {
                     let link = {
                         href: `user/${post?.userId}`,
                         image: users?.users[[post?.userId]].image,
                         firstName: users?.users[[post?.userId]]?.firstName,
                         lastName: users?.users[[post?.userId]]?.lastName,
                     };
-                    return <Post post={post} link={link} />;
+                    return <Post key={index} post={post} link={link} />;
                 })}
             </div>
             <div className="flex gap-[20px] justify-center">

@@ -16,14 +16,14 @@ const UserProfile = ({ params }) => {
                 </h1>
             </div>
             <div className="flex gap-[12px] flex-wrap">
-                {posts?.posts.map((post) => {
+                {posts?.posts.map((post, index) => {
                     let link = {
                         href: `#`,
                         image: users?.image,
                         firstName: users?.firstName,
                         lastName: users?.lastName,
                     };
-                    return <Post post={post} link={link} />;
+                    return <Post key={index} post={post} link={link} />;
                 })}
             </div>
         </>
